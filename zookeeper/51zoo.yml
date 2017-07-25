@@ -5,7 +5,7 @@ metadata:
   namespace: kafka
 spec:
   serviceName: "zoo"
-  replicas: 2
+  replicas: 0
   template:
     metadata:
       labels:
