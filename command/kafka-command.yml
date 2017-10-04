@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kafka-command
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kafka-command
+  namespace: kafka-command
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: run-command
+        image: solsson/kafka:0.11.0.1@sha256:3a77b3396b0890b0b0db880136c16bc83922588ed1d9a9ed82e32c1ae7621770
+        command: [{{COMMAND}}]
